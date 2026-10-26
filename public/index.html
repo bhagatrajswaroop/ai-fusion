@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Fusion Assistant</title><link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar">
+  <div class="brand"><span class="brand-icon">✦</span><div>AI <b>Fusion</b><small>ASSISTANT</small></div></div>
+  <div class="auth" id="authBox">
+    <button class="primary full" id="openAuth">Sign in / Create account</button>
+  </div>
+  <button class="new-chat" id="newChat">＋ New chat</button>
+  <div class="side-label">YOUR HISTORY</div><div id="history" class="history"></div>
+  <div class="sidebar-bottom"><span class="dot"></span> Secure local session <button id="logout" class="text-btn hidden">Sign out</button></div>
+</aside>
+<main class="main">
+  <header class="topbar"><div><span class="status-dot"></span><span id="statusText">AI Fusion workspace</span></div><div class="top-actions"><select id="mode" aria-label="Assistant mode"><option value="chat">✦ General AI</option><option value="code">⌘ Code assistant</option><option value="search">⌕ Web search</option></select><button id="voiceBtn" title="Speak your message">🎙 Voice</button></div></header>
+  <section class="welcome" id="welcome"><div class="orb">✦</div><p class="eyebrow">YOUR ALL-IN-ONE AI COMPANION</p><h1>Meet your <span>AI Fusion.</span></h1><p class="sub">Ask questions, build projects, explore the web, or create something new.</p>
+  <div class="feature-grid">
+    <button class="feature" data-mode="chat" data-prompt="Explain artificial intelligence in simple words with examples."><span class="ficon blue">✧</span><b>Chat & write</b><small>Ask questions and create content</small></button>
+    <button class="feature" data-mode="code" data-prompt="Help me write a clean Python program to check whether a number is prime."><span class="ficon green">⌘</span><b>Code assistant</b><small>Write, debug and explain code</small></button>
+    <button class="feature" data-mode="search" data-prompt="Find recent developments in artificial intelligence and cite sources."><span class="ficon purple">⌕</span><b>Web research</b><small>Explore current information</small></button>
+    <button class="feature" id="imageFeature"><span class="ficon orange">▧</span><b>Image studio</b><small>Generate an image from a prompt</small></button>
+  </div></section>
+  <section id="conversation" class="conversation hidden" aria-live="polite"></section>
+  <div id="imageArea" class="image-area hidden"></div>
+  <div class="composer-wrap"><div class="tool-row"><button id="codeQuick">⌘ Code</button><button id="searchQuick">⌕ Search web</button><button id="imageQuick">▧ Generate image</button><span class="spacer"></span><span class="tiny">Enter to send · Shift+Enter for new line</span></div>
+    <form id="composer" class="composer"><textarea id="prompt" rows="1" placeholder="Message AI Fusion..." maxlength="12000" required></textarea><button type="button" class="mic" id="mic" title="Voice input">🎙</button><button type="submit" class="send" id="send">➤</button></form>
+    <div class="footnote">AI can make mistakes. Verify important information. Your API key stays on the server.</div>
+  </div>
+</main>
+</div>
+<div class="modal hidden" id="authModal"><div class="modal-card"><button class="close" id="closeAuth">×</button><div class="brand modal-brand"><span class="brand-icon">✦</span><div>AI <b>Fusion</b><small>YOUR PERSONAL AI WORKSPACE</small></div></div><div class="tabs"><button class="selected" data-auth="login">Sign in</button><button data-auth="register">Create account</button></div>
+<form id="authForm"><div id="nameWrap" class="hidden"><label>Name</label><input id="authName" autocomplete="name" minlength="2" placeholder="Your name"></div><label>Email</label><input id="authEmail" type="email" autocomplete="email" required placeholder="you@example.com"><label>Password</label><input id="authPassword" type="password" autocomplete="current-password" minlength="10" required placeholder="At least 10 characters"><button class="primary full" type="submit" id="authSubmit">Sign in</button><p id="authError" class="error"></p></form><p class="fine">Your account and chat history are stored in the local database for this app.</p></div></div>
+<div id="toast" class="toast hidden"></div>
+<script src="/app.js" defer></script>
+</body></html>
